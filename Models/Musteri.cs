@@ -11,6 +11,7 @@ namespace Models
     {
         private string ad;
         private string soyad;
+        public int MusteriKayitID { get; set; }
         public string TcKNo { get; set; }
         public string Ad { get => ad; set => ad = value; }
         public string Soyad { get => soyad; set => soyad = value.ToUpper(); }

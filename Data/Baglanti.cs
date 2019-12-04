@@ -44,11 +44,20 @@ namespace Data
             SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             return dr;
         }
-
+        public DataTable GetDataTable(string selectcmdtext)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(selectcmdtext, baglanti);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
         public void Dispose()
         {
             baglanti.Dispose();
-            cmd.Dispose();
+            if (cmd!=null)
+            {
+                cmd.Dispose();
+            }
         }
     }
 }

@@ -21,32 +21,18 @@ namespace OtelOtomasyon
         {
             InitializeComponent();
         }
-
+        DataTable dt = null;
         private void VeriCek()
         {
-            Baglanti b = new Baglanti();
-            try
-            {
-                SqlCommand cmd = new SqlCommand("Select tblMusteri.MusteriKayitID as [ID], tblMusteri.MusteriTcKNo as [TC Kimlik No],tblMusteri.MusteriAd as [Adı],tblMusteri.MusteriSoyad as [Soyadı],tblMusteri.MusteriGirisTarih as [Giriş Tarihi],tblMusteri.MusteriCikisTarih as [Çıkış Tarihi],tblMusteri.MusteriOdaNo as [Oda No] from tblMusteri inner join tblOda on tblMusteri.MusteriOdaNo=tblOda.OdaNo", b.baglanti);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                b.Ac();
-                da.Fill(dt);
-                dgwResepsiyon.DataSource = dt;
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Sql Hatası ile Karşılaşıldı. Hata Kodu: " + ex.Number);
-            }
-            finally
-            {
-                b.Dispose();
-            }
+            MusteriBL mbl = new MusteriBL();
+            dt=mbl.MusteriGetir();
+            dgwResepsiyon.DataSource = dt;
+            mbl.Dispose();
         }
 
         private void btnMusteriKayit_Click(object sender, EventArgs e)
         {
-            frmMusteriKayit frmkyt = new frmMusteriKayit();
+            frmMusteri frmkyt = new frmMusteri();
             frmkyt.Show();
         }
 
@@ -64,7 +50,7 @@ namespace OtelOtomasyon
         {
             frmGirisPnl frm = (frmGirisPnl)Application.OpenForms["frmGirisPnl"];
             frm.Show();
-            this.Close();
+            this.Dispose();
         }
 
         private void frmResepsiyon_Load(object sender, EventArgs e)
@@ -73,6 +59,12 @@ namespace OtelOtomasyon
             dgwResepsiyon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgwResepsiyon.AllowUserToAddRows = false;
             dgwResepsiyon.AllowUserToDeleteRows = false;
+        }
+
+        private void btnMusteri_Click(object sender, EventArgs e)
+        {
+            frmMusteri frmMus = new frmMusteri();
+            frmMus.Show();
         }
     }
 }

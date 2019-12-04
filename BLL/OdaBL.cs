@@ -12,6 +12,11 @@ namespace BLL
     public class OdaBL:IDisposable
     {
         Baglanti b = new Baglanti();
+        public bool MusOdaBosalt(int odaNo)
+        {
+            SqlParameter[] p = { new SqlParameter("@odaNo", odaNo) };
+            return b.ExecuteNonQuery("Update tblOda set OdaBosmu=1 where OdaNo=@odaNo", p)>0;
+        }
         public List<Oda> BosOdaListesi()
         {
             SqlDataReader dr = b.ExecuteReader("Select OdaNo,OdaTip,OdaYatakSayisi,OdaGunlukFiyat,OdaBosmu from tblOda where OdaBosmu=1", null);

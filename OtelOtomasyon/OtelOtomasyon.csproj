@@ -62,17 +62,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBul.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBul.Designer.cs">
+      <DependentUpon>frmBul.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGirisPnl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGirisPnl.Designer.cs">
       <DependentUpon>frmGirisPnl.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMusteriKayit.cs">
+    <Compile Include="frmMusteri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMusteriKayit.Designer.cs">
-      <DependentUpon>frmMusteriKayit.cs</DependentUpon>
+    <Compile Include="frmMusteri.Designer.cs">
+      <DependentUpon>frmMusteri.cs</DependentUpon>
     </Compile>
     <Compile Include="frmResepsiyon.cs">
       <SubType>Form</SubType>
@@ -88,11 +94,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBul.resx">
+      <DependentUpon>frmBul.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGirisPnl.resx">
       <DependentUpon>frmGirisPnl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMusteriKayit.resx">
-      <DependentUpon>frmMusteriKayit.cs</DependentUpon>
+    <EmbeddedResource Include="frmMusteri.resx">
+      <DependentUpon>frmMusteri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmResepsiyon.resx">
       <DependentUpon>frmResepsiyon.cs</DependentUpon>
@@ -136,6 +145,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{A88F50DB-BFAB-48D8-A757-56067C559C87}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomControlsLib\CustomControlsLib.csproj">
+      <Project>{a28b98aa-14d4-4511-be0e-511149a6f8f8}</Project>
+      <Name>CustomControlsLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{90E9E11F-56F8-4F3E-8285-2B1A99127A38}</Project>

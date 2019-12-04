@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dgwResepsiyon = new System.Windows.Forms.DataGridView();
-            this.btnMusteriKayit = new System.Windows.Forms.Button();
+            this.btnMusteri = new System.Windows.Forms.Button();
             this.btnYenile = new System.Windows.Forms.Button();
             this.btnOturumKapat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResepsiyon)).BeginInit();
@@ -45,16 +45,16 @@
             this.dgwResepsiyon.Size = new System.Drawing.Size(746, 410);
             this.dgwResepsiyon.TabIndex = 1;
             // 
-            // btnMusteriKayit
+            // btnMusteri
             // 
-            this.btnMusteriKayit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnMusteriKayit.Location = new System.Drawing.Point(0, 0);
-            this.btnMusteriKayit.Name = "btnMusteriKayit";
-            this.btnMusteriKayit.Size = new System.Drawing.Size(115, 40);
-            this.btnMusteriKayit.TabIndex = 2;
-            this.btnMusteriKayit.Text = "Müşteri Kayıt";
-            this.btnMusteriKayit.UseVisualStyleBackColor = true;
-            this.btnMusteriKayit.Click += new System.EventHandler(this.btnMusteriKayit_Click);
+            this.btnMusteri.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMusteri.Location = new System.Drawing.Point(0, 0);
+            this.btnMusteri.Name = "btnMusteri";
+            this.btnMusteri.Size = new System.Drawing.Size(115, 40);
+            this.btnMusteri.TabIndex = 2;
+            this.btnMusteri.Text = "Müşteri İşlemleri";
+            this.btnMusteri.UseVisualStyleBackColor = true;
+            this.btnMusteri.Click += new System.EventHandler(this.btnMusteri_Click);
             // 
             // btnYenile
             // 
@@ -87,7 +87,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnOturumKapat);
             this.Controls.Add(this.btnYenile);
-            this.Controls.Add(this.btnMusteriKayit);
+            this.Controls.Add(this.btnMusteri);
             this.Controls.Add(this.dgwResepsiyon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmResepsiyon";
@@ -101,7 +101,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgwResepsiyon;
-        private System.Windows.Forms.Button btnMusteriKayit;
+        private System.Windows.Forms.Button btnMusteri;
         private System.Windows.Forms.Button btnYenile;
         private System.Windows.Forms.Button btnOturumKapat;
     }
