@@ -206,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 271);
+            this.ClientSize = new System.Drawing.Size(283, 271);
             this.Controls.Add(this.pnlText);
             this.Controls.Add(this.btnVazgec);
             this.Controls.Add(this.BtnSil);

@@ -16,7 +16,7 @@ namespace OtelOtomasyon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGirisPnl());
+            Application.Run(new frmMain());
         }
     }
 }

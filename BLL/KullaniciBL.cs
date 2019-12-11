@@ -13,9 +13,22 @@ namespace BLL
     {
         public SqlDataReader Giris(Kullanici k)
         {
-            Baglanti b = new Baglanti();
-            SqlParameter[] p = { new SqlParameter("@KullaniciAdi", k.KullaniciAdi), new SqlParameter("@Sifre", k.Sifre) };
-            return b.ExecuteReader("Select KullaniciTip from tblKullanici Where KullaniciAdi=@KullaniciAdi and KullaniciSifre=@Sifre",p);
+            try
+            {
+                Baglanti b = new Baglanti();
+                SqlParameter[] p = { new SqlParameter("@KullaniciAdi", k.KullaniciAdi), new SqlParameter("@Sifre", k.Sifre) };
+                return b.ExecuteReader("Select YetkiID from tblKullanici Where KullaniciAdi=@KullaniciAdi and KullaniciSifre=@Sifre", p);
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

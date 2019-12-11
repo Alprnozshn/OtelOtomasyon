@@ -35,14 +35,27 @@ namespace Data
 
         public SqlDataReader ExecuteReader(string cmdtext, SqlParameter[] p)
         {
-            cmd = new SqlCommand(cmdtext, baglanti);
-            if (p != null)
+            try
             {
-                cmd.Parameters.AddRange(p);
+                cmd = new SqlCommand(cmdtext, baglanti);
+                if (p != null)
+                {
+                    cmd.Parameters.AddRange(p);
+                }
+                Ac();
+                SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                return dr;
             }
-            Ac();
-            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            return dr;
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public DataTable GetDataTable(string selectcmdtext)
         {
