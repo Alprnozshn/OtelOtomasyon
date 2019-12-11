@@ -79,7 +79,7 @@ namespace BLL
         }
         public DataTable MusteriGetir()
         {
-            return b.GetDataTable("Select tblMusteri.MusteriKayitID ,tblMusteri.MusteriTcKNo ,tblMusteri.MusteriAd ,tblMusteri.MusteriSoyad ,tblMusteri.MusteriGirisTarih ,tblMusteri.MusteriCikisTarih ,tblMusteri.MusteriOdaNo  from tblMusteri inner join tblOda on tblMusteri.MusteriOdaNo=tblOda.OdaNo");
+            return b.GetDataTable("Select m.MusteriKayitID ,m.MusteriTcKNo ,m.MusteriAd ,m.MusteriSoyad ,m.MusteriGirisTarih ,m.MusteriCikisTarih ,m.MusteriOdaNo  from tblMusteri m inner join tblOda o on m.MusteriOdaNo=o.OdaNo");
         }
     }
 }
