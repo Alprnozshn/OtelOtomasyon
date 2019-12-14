@@ -29,6 +29,7 @@ namespace OtelOtomasyon
                     frmMain frm = (frmMain)Application.OpenForms["frmMain"];
                     MessageBox.Show($"Hoşgeldiniz {kl.KullaniciAdi}");
                     frm.menuMain.Items["menuResepsiyon"].Visible = true;
+                    frm.menuDosya.DropDownItems["menuCikis"].Visible = true;
                     switch (dr["YetkiID"])
                     {
                         case (1):
@@ -39,6 +40,7 @@ namespace OtelOtomasyon
                             frm.YetkiID = 2;
                             break;
                     }
+                    frm.menuGiris.Visible = false;
                     this.Dispose();
                 }
                 else

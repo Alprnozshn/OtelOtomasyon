@@ -16,7 +16,6 @@ namespace OtelOtomasyon
 {
     public partial class frmResepsiyon : Form
     {
-        
         public frmResepsiyon()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace OtelOtomasyon
         private void VeriCek()
         {
             MusteriBL mbl = new MusteriBL();
-            dt=mbl.MusteriGetir();
+            dt = mbl.MusteriGetir();
             dgwResepsiyon.DataSource = dt;
             mbl.Dispose();
 
@@ -36,46 +35,29 @@ namespace OtelOtomasyon
             //clmOdaNo.ValueMember = "OdaNo";
             //obl.Dispose();
         }
-
         private void btnMusteriKayit_Click(object sender, EventArgs e)
         {
             frmMusteri frmkyt = new frmMusteri();
             frmkyt.Show();
         }
-
-        private void btnOturumKapat_Click(object sender, EventArgs e)
-        {
-            GirisEkraninaDon();
-        }
-
         private void btnYenile_Click(object sender, EventArgs e)
         {
-            DialogResult cvp = MessageBox.Show("Kaydedilmemiş bilgiler kaybolacaktır. Devam Edilsin mi?","Uyarı",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (cvp==DialogResult.Yes)
+            DialogResult cvp = MessageBox.Show("Kaydedilmemiş bilgiler kaybolacaktır. Devam Edilsin mi?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (cvp == DialogResult.Yes)
             {
                 VeriCek();
                 btnYenile.Visible = false;
             }
         }
-
-        void GirisEkraninaDon()
-        {
-            frmGirisPnl frm = (frmGirisPnl)Application.OpenForms["frmGirisPnl"];
-            frm.Show();
-            this.Dispose();
-        }
-
         private void frmResepsiyon_Load(object sender, EventArgs e)
         {
             VeriCek();
         }
-
         private void btnMusteri_Click(object sender, EventArgs e)
         {
             frmMusteri frmMus = new frmMusteri();
             frmMus.Show();
         }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             MusteriBL mbl = new MusteriBL();
@@ -88,7 +70,7 @@ namespace OtelOtomasyon
                     m.Ad = item[2].ToString();
                     m.Soyad = item[3].ToString();
                     m.GirTar = Convert.ToDateTime(item[4]);
-                    m.CikTar= Convert.ToDateTime(item[5]);
+                    m.CikTar = Convert.ToDateTime(item[5]);
                     m.OdaNo = Convert.ToInt32(item[6]);
                 }
                 switch (item.RowState)
@@ -108,7 +90,6 @@ namespace OtelOtomasyon
                 }
             }
         }
-
         private void dgwResepsiyon_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             btnYenile.Visible = true;

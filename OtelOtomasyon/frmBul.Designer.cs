@@ -69,7 +69,7 @@
             this.Controls.Add(this.btnBul);
             this.Controls.Add(this.txtTcKNo);
             this.Name = "frmBul";
-            this.Text = "frmBul";
+            this.Text = "Müşteri Bul";
             this.ResumeLayout(false);
             this.PerformLayout();
 

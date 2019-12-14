@@ -34,6 +34,7 @@ namespace OtelOtomasyon
             cmEBosOda.SelectedIndex = 0;
             BtnSil.Visible = false;
             btnVazgec.Visible = false;
+            this.Text = "Müşteri Kayıt";
         }
         private void btnMusEkle_Click(object sender, EventArgs e)
         {
@@ -92,9 +93,11 @@ namespace OtelOtomasyon
         private void CmbVeriCek()
         {
             OdaBL obl = new OdaBL();
+            List<Oda> lst = obl.BosOdaListesi();
+            lst.Insert(0, new Oda { OdaNoAndTip = "----Seçiniz----" });
             cmEBosOda.DisplayMember = "OdaNoAndTip";
             cmEBosOda.ValueMember = "OdaNo";
-            cmEBosOda.DataSource = obl.BosOdaListesi();
+            cmEBosOda.DataSource = lst;
             obl.Dispose();
         }
 

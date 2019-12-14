@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adisyon.cs" />
     <Compile Include="Kullanici.cs" />
     <Compile Include="Musteri.cs" />
+    <Compile Include="MusteriAdisyon.cs" />
     <Compile Include="Oda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

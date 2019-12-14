@@ -32,13 +32,16 @@ namespace OtelOtomasyon
             frm.dtpECikTar.Text = m.CikTar.ToString();
             if (obl.MusOdaBosalt(m.OdaNo))
             {
-                frm.cmEBosOda.DataSource = obl.BosOdaListesi();
+                List<Oda> lst = obl.BosOdaListesi();
+                lst.Insert(0, new Oda { OdaNoAndTip = "----Seçiniz----" });
+                frm.cmEBosOda.DataSource = lst;
                 frm.cmEBosOda.SelectedValue = m.OdaNo;
             }
             frm.dtpEGirTar.Text = m.GirTar.ToString();
             frm.btnMusEkle.Text = "Güncelle";
             frm.BtnSil.Visible = true;
             frm.btnVazgec.Visible = true;
+            frm.Text = "Müşteri Güncelleme";
             this.Dispose();
         }
     }

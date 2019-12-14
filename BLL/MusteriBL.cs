@@ -20,7 +20,6 @@ namespace BLL
         }
         public bool MusteriEkle(Musteri mus)
         {
-
             try
             {
                 SqlParameter[] p = { new SqlParameter("@Ad", mus.Ad), new SqlParameter("@Soyad", mus.Soyad), new SqlParameter("@TcKNo", mus.TcKNo), new SqlParameter("@GirTar", mus.GirTar.Date), new SqlParameter("@CikTar", mus.CikTar.Date), new SqlParameter("@OdaNo", mus.OdaNo) };

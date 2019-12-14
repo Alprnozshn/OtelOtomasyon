@@ -31,18 +31,18 @@
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.menuDosya = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGiris = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCikis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuResepsiyon = new System.Windows.Forms.ToolStripMenuItem();
             this.menuResepsiyonPnl = new System.Windows.Forms.ToolStripMenuItem();
             this.müşteriİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMusteri = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAdisyon = new System.Windows.Forms.ToolStripMenuItem();
             this.menuYonetim = new System.Windows.Forms.ToolStripMenuItem();
             this.menuYonetimPnl = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPersonel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuKullanici = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDepartman = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOda = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMusteri = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuAdisyon = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCikis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,14 @@
             this.menuGiris.Text = "Giriş Yap";
             this.menuGiris.Click += new System.EventHandler(this.menuGiris_Click);
             // 
+            // menuCikis
+            // 
+            this.menuCikis.Name = "menuCikis";
+            this.menuCikis.Size = new System.Drawing.Size(180, 22);
+            this.menuCikis.Text = "Çıkış Yap";
+            this.menuCikis.Visible = false;
+            this.menuCikis.Click += new System.EventHandler(this.menuCikis_Click);
+            // 
             // menuResepsiyon
             // 
             this.menuResepsiyon.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -87,7 +95,7 @@
             // menuResepsiyonPnl
             // 
             this.menuResepsiyonPnl.Name = "menuResepsiyonPnl";
-            this.menuResepsiyonPnl.Size = new System.Drawing.Size(180, 22);
+            this.menuResepsiyonPnl.Size = new System.Drawing.Size(168, 22);
             this.menuResepsiyonPnl.Text = "Resepsiyon Paneli";
             this.menuResepsiyonPnl.Click += new System.EventHandler(this.menuResepsiyonPnl_Click);
             // 
@@ -97,8 +105,22 @@
             this.menuMusteri,
             this.menuAdisyon});
             this.müşteriİşlemleriToolStripMenuItem.Name = "müşteriİşlemleriToolStripMenuItem";
-            this.müşteriİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.müşteriİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.müşteriİşlemleriToolStripMenuItem.Text = "Müşteri";
+            // 
+            // menuMusteri
+            // 
+            this.menuMusteri.Name = "menuMusteri";
+            this.menuMusteri.Size = new System.Drawing.Size(164, 22);
+            this.menuMusteri.Text = "Müşteri İşlemleri";
+            this.menuMusteri.Click += new System.EventHandler(this.menuMusteri_Click);
+            // 
+            // menuAdisyon
+            // 
+            this.menuAdisyon.Name = "menuAdisyon";
+            this.menuAdisyon.Size = new System.Drawing.Size(164, 22);
+            this.menuAdisyon.Text = "Adisyon İşlemleri";
+            this.menuAdisyon.Click += new System.EventHandler(this.menuAdisyon_Click);
             // 
             // menuYonetim
             // 
@@ -118,6 +140,7 @@
             this.menuYonetimPnl.Name = "menuYonetimPnl";
             this.menuYonetimPnl.Size = new System.Drawing.Size(180, 22);
             this.menuYonetimPnl.Text = "Yönetim Paneli";
+            this.menuYonetimPnl.Click += new System.EventHandler(this.menuYonetimPnl_Click);
             // 
             // menuPersonel
             // 
@@ -143,25 +166,6 @@
             this.menuOda.Size = new System.Drawing.Size(180, 22);
             this.menuOda.Text = "Oda İşlemleri";
             // 
-            // menuMusteri
-            // 
-            this.menuMusteri.Name = "menuMusteri";
-            this.menuMusteri.Size = new System.Drawing.Size(180, 22);
-            this.menuMusteri.Text = "Müşteri İşlemleri";
-            // 
-            // menuAdisyon
-            // 
-            this.menuAdisyon.Name = "menuAdisyon";
-            this.menuAdisyon.Size = new System.Drawing.Size(180, 22);
-            this.menuAdisyon.Text = "Adisyon İşlemleri";
-            // 
-            // menuCikis
-            // 
-            this.menuCikis.Name = "menuCikis";
-            this.menuCikis.Size = new System.Drawing.Size(180, 22);
-            this.menuCikis.Text = "Çıkış Yap";
-            this.menuCikis.Click += new System.EventHandler(this.menuCikis_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,7 +175,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuMain;
             this.Name = "frmMain";
-            this.Text = "frmMain";
+            this.Text = "Ana Menü";
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
             this.ResumeLayout(false);
@@ -180,8 +184,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem menuDosya;
-        private System.Windows.Forms.ToolStripMenuItem menuGiris;
         private System.Windows.Forms.ToolStripMenuItem menuResepsiyonPnl;
         private System.Windows.Forms.ToolStripMenuItem müşteriİşlemleriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuMusteri;
@@ -195,5 +197,7 @@
         public System.Windows.Forms.ToolStripMenuItem menuResepsiyon;
         public System.Windows.Forms.ToolStripMenuItem menuYonetim;
         public System.Windows.Forms.ToolStripMenuItem menuCikis;
+        public System.Windows.Forms.ToolStripMenuItem menuDosya;
+        public System.Windows.Forms.ToolStripMenuItem menuGiris;
     }
 }

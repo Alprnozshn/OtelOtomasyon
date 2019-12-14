@@ -12,7 +12,7 @@ namespace Models
         public string OdaTip { get; set; }
         public int YatakSayisi { get; set; }
         public bool OdaBosmu { get; set; }
-        public int OdaGunlukFiyat { get; set; }
+        public float OdaGunlukFiyat { get; set; }
         public string OdaNoAndTip { get; set; }
     }
 }

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgwResepsiyon = new System.Windows.Forms.DataGridView();
-            this.btnMusteri = new System.Windows.Forms.Button();
-            this.btnKaydet = new System.Windows.Forms.Button();
-            this.btnYenile = new System.Windows.Forms.Button();
             this.MusteriID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MusteriTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MusteriAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +36,8 @@
             this.MusteriGirTar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MusteriCikTar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmOdaNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnKaydet = new System.Windows.Forms.Button();
+            this.btnYenile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResepsiyon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,40 +59,6 @@
             this.dgwResepsiyon.Size = new System.Drawing.Size(719, 410);
             this.dgwResepsiyon.TabIndex = 1;
             this.dgwResepsiyon.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwResepsiyon_CellEndEdit);
-            // 
-            // btnMusteri
-            // 
-            this.btnMusteri.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnMusteri.Location = new System.Drawing.Point(0, 0);
-            this.btnMusteri.Name = "btnMusteri";
-            this.btnMusteri.Size = new System.Drawing.Size(115, 40);
-            this.btnMusteri.TabIndex = 2;
-            this.btnMusteri.Text = "Müşteri İşlemleri";
-            this.btnMusteri.UseVisualStyleBackColor = true;
-            this.btnMusteri.Click += new System.EventHandler(this.btnMusteri_Click);
-            // 
-            // btnKaydet
-            // 
-            this.btnKaydet.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnKaydet.Location = new System.Drawing.Point(115, 0);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(107, 40);
-            this.btnKaydet.TabIndex = 3;
-            this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
-            // 
-            // btnYenile
-            // 
-            this.btnYenile.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnYenile.Location = new System.Drawing.Point(222, 0);
-            this.btnYenile.Name = "btnYenile";
-            this.btnYenile.Size = new System.Drawing.Size(107, 40);
-            this.btnYenile.TabIndex = 4;
-            this.btnYenile.Text = "Listeyi Yenile";
-            this.btnYenile.UseVisualStyleBackColor = true;
-            this.btnYenile.Visible = false;
-            this.btnYenile.Click += new System.EventHandler(this.btnYenile_Click);
             // 
             // MusteriID
             // 
@@ -147,6 +112,29 @@
             this.clmOdaNo.ReadOnly = true;
             this.clmOdaNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // btnKaydet
+            // 
+            this.btnKaydet.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnKaydet.Location = new System.Drawing.Point(0, 0);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Size = new System.Drawing.Size(107, 40);
+            this.btnKaydet.TabIndex = 3;
+            this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
+            // btnYenile
+            // 
+            this.btnYenile.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnYenile.Location = new System.Drawing.Point(612, 0);
+            this.btnYenile.Name = "btnYenile";
+            this.btnYenile.Size = new System.Drawing.Size(107, 40);
+            this.btnYenile.TabIndex = 4;
+            this.btnYenile.Text = "Listeyi Yenile";
+            this.btnYenile.UseVisualStyleBackColor = true;
+            this.btnYenile.Visible = false;
+            this.btnYenile.Click += new System.EventHandler(this.btnYenile_Click);
+            // 
             // frmResepsiyon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,12 +143,11 @@
             this.ClientSize = new System.Drawing.Size(719, 450);
             this.Controls.Add(this.btnYenile);
             this.Controls.Add(this.btnKaydet);
-            this.Controls.Add(this.btnMusteri);
             this.Controls.Add(this.dgwResepsiyon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmResepsiyon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmResepsiyon";
+            this.Text = "Müşteri Listesi";
             this.Load += new System.EventHandler(this.frmResepsiyon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwResepsiyon)).EndInit();
             this.ResumeLayout(false);
@@ -169,7 +156,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgwResepsiyon;
-        private System.Windows.Forms.Button btnMusteri;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.Button btnYenile;
         private System.Windows.Forms.DataGridViewTextBoxColumn MusteriID;

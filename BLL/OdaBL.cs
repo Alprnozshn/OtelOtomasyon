@@ -26,7 +26,6 @@ namespace BLL
                 lst.Add(new Oda { OdaNo = Convert.ToInt32(dr["OdaNo"]), OdaTip = dr["OdaTip"].ToString(), YatakSayisi = Convert.ToInt32(dr["OdaYatakSayisi"]), OdaGunlukFiyat = Convert.ToInt32(dr["OdaGunlukFiyat"]), OdaBosmu = (bool)dr["OdaBosmu"],OdaNoAndTip=dr["OdaNo"].ToString()+" No'lu "+dr["OdaTip"].ToString()+" Fiyat ="+dr["OdaGunlukFiyat"]+"TL"}); 
             }
             dr.Close();
-            lst.Insert(0, new Oda { OdaNoAndTip = "----Seçiniz----" });
             return lst;
         }
 

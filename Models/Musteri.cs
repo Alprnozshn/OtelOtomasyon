@@ -18,6 +18,7 @@ namespace Models
         public DateTime GirTar { get; set; }
         public DateTime CikTar { get; set; }
         public int OdaNo { get; set; }
-        
+        public string AdSoyad { get; set; }
+
     }
 }
