@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -28,6 +29,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,8 +52,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -110,14 +122,38 @@
     <Compile Include="frmResepsiyon.Designer.cs">
       <DependentUpon>frmResepsiyon.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmYetkiIslem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYetkiIslem.Designer.cs">
+      <DependentUpon>frmYetkiIslem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmYonetici.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmYonetici.Designer.cs">
       <DependentUpon>frmYonetici.cs</DependentUpon>
     </Compile>
+    <Compile Include="mdlYetki.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mdlYetki.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mdlYetki.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mdlYetki.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mdlYetki.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mdlYetki.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tblYetki.cs">
+      <DependentUpon>mdlYetki.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAdisyonIslem.resx">
       <DependentUpon>frmAdisyonIslem.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +178,9 @@
     <EmbeddedResource Include="frmResepsiyon.resx">
       <DependentUpon>frmResepsiyon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmYetkiIslem.resx">
+      <DependentUpon>frmYetkiIslem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -152,6 +191,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="mdlYetki.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>mdlYetki.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="mdlYetki.edmx.diagram">
+      <DependentUpon>mdlYetki.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -198,5 +245,28 @@
   <ItemGroup>
     <Folder Include="DbScript\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="mdlYetki.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>mdlYetki.edmx</DependentUpon>
+      <LastGenOutput>mdlYetki.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="mdlYetki.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>mdlYetki.edmx</DependentUpon>
+      <LastGenOutput>mdlYetki.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
 </Project>

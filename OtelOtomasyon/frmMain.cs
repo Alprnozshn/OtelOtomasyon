@@ -61,5 +61,12 @@ namespace OtelOtomasyon
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void menuYetkiIslem_Click(object sender, EventArgs e)
+        {
+            frmYetkiIslem frm = new frmYetkiIslem();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
