@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,21 @@ namespace OtelOtomasyon
         }
         void VeriCek()
         {
-            AdisyonBL abl = new AdisyonBL();
-            dt = abl.AdisyonGetir();
-            gridAdisyon.DataSource = dt;
-            abl.Dispose();
+            try
+            {
+                AdisyonBL abl = new AdisyonBL();
+                dt = abl.AdisyonGetir();
+                gridAdisyon.DataSource = dt;
+                abl.Dispose();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Veritabanı Hatası! Hata Kodu: "+ex.Number);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bilinmeyen Hata: "+ex.Message);
+            }
         }
         private void frmAdisyonIslem_Load(object sender, EventArgs e)
         {

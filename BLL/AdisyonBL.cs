@@ -38,7 +38,20 @@ namespace BLL
         }
         public DataTable AdisyonGetir()
         {
-            return b.GetDataTable("Select AdisyonID, AdisyonAd, AdisyonFiyat from tblAdisyon");
+            try
+            {
+                return b.GetDataTable("Select AdisyonID, AdisyonAd, AdisyonFiyat from tblAdisyon");
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public bool AdisyonEkle(Adisyon adis)
         {
@@ -59,14 +72,40 @@ namespace BLL
         }
         public bool AdisyonGuncelle(Adisyon adis)
         {
-            SqlParameter[] p = { new SqlParameter("@ID",adis.AdisyonID),new SqlParameter("@Ad",adis.AdisyonAd),new SqlParameter("@Fiyat",adis.Fiyat)};
-            return b.ExecuteNonQuery("Update tblAdisyon SET AdisyonAd=@Ad,AdisyonFiyat=@Fiyat where AdisyonID=@ID", p) > 0;
+            try
+            {
+                SqlParameter[] p = { new SqlParameter("@ID", adis.AdisyonID), new SqlParameter("@Ad", adis.AdisyonAd), new SqlParameter("@Fiyat", adis.Fiyat) };
+                return b.ExecuteNonQuery("Update tblAdisyon SET AdisyonAd=@Ad,AdisyonFiyat=@Fiyat where AdisyonID=@ID", p) > 0;
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
            
         }
         public bool AdisyonSil(int AdisID)
         {
-            SqlParameter[] p = { new SqlParameter("@AdisID", AdisID) };
-            return b.ExecuteNonQuery("Delete from tblAdisyon where AdisyonID=@AdisID", p) > 0;
+            try
+            {
+                SqlParameter[] p = { new SqlParameter("@AdisID", AdisID) };
+                return b.ExecuteNonQuery("Delete from tblAdisyon where AdisyonID=@AdisID", p) > 0;
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public void Dispose()
         {

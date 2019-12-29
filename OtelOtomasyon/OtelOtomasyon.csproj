@@ -98,6 +98,12 @@
     <Compile Include="frmGirisPnl.Designer.cs">
       <DependentUpon>frmGirisPnl.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKullanici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKullanici.Designer.cs">
+      <DependentUpon>frmKullanici.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,26 +140,8 @@
     <Compile Include="frmYonetici.Designer.cs">
       <DependentUpon>frmYonetici.cs</DependentUpon>
     </Compile>
-    <Compile Include="mdlYetki.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>mdlYetki.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="mdlYetki.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>mdlYetki.tt</DependentUpon>
-    </Compile>
-    <Compile Include="mdlYetki.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>mdlYetki.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tblYetki.cs">
-      <DependentUpon>mdlYetki.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmAdisyonIslem.resx">
       <DependentUpon>frmAdisyonIslem.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGirisPnl.resx">
       <DependentUpon>frmGirisPnl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKullanici.resx">
+      <DependentUpon>frmKullanici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -191,14 +182,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="mdlYetki.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>mdlYetki.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="mdlYetki.edmx.diagram">
-      <DependentUpon>mdlYetki.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -244,18 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DbScript\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="mdlYetki.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>mdlYetki.edmx</DependentUpon>
-      <LastGenOutput>mdlYetki.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="mdlYetki.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>mdlYetki.edmx</DependentUpon>
-      <LastGenOutput>mdlYetki.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -47,6 +47,7 @@
     <Compile Include="MusteriBL.cs" />
     <Compile Include="OdaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YetkiBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

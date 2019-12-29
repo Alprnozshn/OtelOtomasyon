@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,48 +9,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Entity;
-using Models;
-using BLL;
 
 namespace OtelOtomasyon
 {
-    public partial class frmYetkiIslem : Form
+    public partial class frmKullanici : Form
     {
-        public frmYetkiIslem()
+        public frmKullanici()
         {
             InitializeComponent();
         }
         DataTable dt;
-
-        private void frmYetkiIslem_Load(object sender, EventArgs e)
+        private void frmKullanici_Load(object sender, EventArgs e)
         {
-            YetkiBL ybl = new YetkiBL();
-            dt = ybl.YetkiListesi();
-            gridYetki.DataSource = dt;
+            gridKullanici.AutoGenerateColumns = false;
+            KullaniciBL kbl = new KullaniciBL();
+            dt=kbl.KullaniciTablosu();
+            gridKullanici.DataSource = dt;
+            clmYetki.ValueMember = "YetkiID";
+            clmYetki.DisplayMember = "YetkiAd";
+            clmYetki.DataSource = kbl.YetkiGetir();
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            YetkiBL ybl = new YetkiBL();
+            KullaniciBL kbl = new KullaniciBL();
             foreach (DataRow item in dt.Rows)
             {
-                Yetki y = new Yetki();
+                Kullanici y = new Kullanici();
                 if (item.RowState != DataRowState.Deleted)
                 {
-                    y.YetkiAd = item[1].ToString();
+                    y.KullaniciAdi = item[1].ToString();
                 }
                 switch (item.RowState)
                 {
                     case DataRowState.Added:
-                        ybl.Ekle(y);
+                        kbl.Ekle(y);
                         break;
                     case DataRowState.Deleted:
-                        ybl.Sil(Convert.ToInt32(item[0, DataRowVersion.Original]));
+                        kbl.Sil(Convert.ToInt32(item[0, DataRowVersion.Original]));
                         break;
                     case DataRowState.Modified:
-                        y.YetkiID = Convert.ToInt32(item[0]);
-                        ybl.Guncelle(y);
+                        y.KullaniciID = Convert.ToInt32(item[0]);
+                        kbl.Guncelle(y);
                         break;
                     default:
                         break;

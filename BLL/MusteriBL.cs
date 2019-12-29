@@ -43,42 +43,94 @@ namespace BLL
         }
         public Musteri MusteriBul(string TC)
         {
-            SqlParameter[] p = { new SqlParameter("@TC", TC) };
-            SqlDataReader dr = b.ExecuteReader("Select MusteriKayitID,MusteriTcKNo,MusteriAd,MusteriSoyad,MusteriGirisTarih,MusteriCikisTarih,MusteriOdaNo from tblMusteri where MusteriTcKNo=@TC", p);
-            Musteri m = null;
-            if (dr.Read())
+            try
             {
-                m = new Musteri();
-                m.MusteriKayitID = Convert.ToInt32(dr["MusteriKayitID"]);
-                m.TcKNo = dr["MusteriTcKNo"].ToString();
-                m.Ad = dr["MusteriAd"].ToString();
-                m.Soyad = dr["MusteriSoyad"].ToString();
-                m.GirTar = Convert.ToDateTime(dr["MusteriGirisTarih"]);
-                m.CikTar = Convert.ToDateTime(dr["MusteriCikisTarih"]);
-                m.OdaNo = Convert.ToInt32(dr["MusteriOdaNo"]);
+                SqlParameter[] p = { new SqlParameter("@TC", TC) };
+                SqlDataReader dr = b.ExecuteReader("Select MusteriKayitID,MusteriTcKNo,MusteriAd,MusteriSoyad,MusteriGirisTarih,MusteriCikisTarih,MusteriOdaNo from tblMusteri where MusteriTcKNo=@TC", p);
+                Musteri m = null;
+                if (dr.Read())
+                {
+                    m = new Musteri();
+                    m.MusteriKayitID = Convert.ToInt32(dr["MusteriKayitID"]);
+                    m.TcKNo = dr["MusteriTcKNo"].ToString();
+                    m.Ad = dr["MusteriAd"].ToString();
+                    m.Soyad = dr["MusteriSoyad"].ToString();
+                    m.GirTar = Convert.ToDateTime(dr["MusteriGirisTarih"]);
+                    m.CikTar = Convert.ToDateTime(dr["MusteriCikisTarih"]);
+                    m.OdaNo = Convert.ToInt32(dr["MusteriOdaNo"]);
+                }
+                return m;
             }
-            return m;
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public bool MusteriGuncelle(Musteri mus)
         {
-            SqlParameter[] p = { new SqlParameter("@MusID", mus.MusteriKayitID), new SqlParameter("@MusAd", mus.Ad), new SqlParameter("@MusSoyad", mus.Soyad), new SqlParameter("@MusTcKNo", mus.TcKNo), new SqlParameter("@GirTar", mus.GirTar), new SqlParameter("@CikTar", mus.CikTar), new SqlParameter("@OdaNo", mus.OdaNo) };
-            if (b.ExecuteNonQuery("Update tblMusteri SET MusteriTcKNo=@MusTcKNo,MusteriAd=@MusAd,MusteriSoyad=@MusSoyad,MusteriGirisTarih=@GirTar,MusteriCikisTarih=@CikTar,MusteriOdaNo=@OdaNo where MusteriKayitID=@MusID", p) > 0)
+            try
             {
-                return b.ExecuteNonQuery($"Update tblOda Set OdaBosmu=0 Where OdaNo={mus.OdaNo}", null) > 0;
+                SqlParameter[] p = { new SqlParameter("@MusID", mus.MusteriKayitID), new SqlParameter("@MusAd", mus.Ad), new SqlParameter("@MusSoyad", mus.Soyad), new SqlParameter("@MusTcKNo", mus.TcKNo), new SqlParameter("@GirTar", mus.GirTar), new SqlParameter("@CikTar", mus.CikTar), new SqlParameter("@OdaNo", mus.OdaNo) };
+                if (b.ExecuteNonQuery("Update tblMusteri SET MusteriTcKNo=@MusTcKNo,MusteriAd=@MusAd,MusteriSoyad=@MusSoyad,MusteriGirisTarih=@GirTar,MusteriCikisTarih=@CikTar,MusteriOdaNo=@OdaNo where MusteriKayitID=@MusID", p) > 0)
+                {
+                    return b.ExecuteNonQuery($"Update tblOda Set OdaBosmu=0 Where OdaNo={mus.OdaNo}", null) > 0;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (SqlException)
             {
-                return false;
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
         public bool MusteriSil(int musID)
         {
-            SqlParameter[] p = { new SqlParameter("@MusID", musID) };
-            return b.ExecuteNonQuery("Delete from tblMusteri where MusteriKayitID=@MusID", p) > 0;
+            try
+            {
+                SqlParameter[] p = { new SqlParameter("@MusID", musID) };
+                return b.ExecuteNonQuery("Delete from tblMusteri where MusteriKayitID=@MusID", p) > 0;
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public DataTable MusteriGetir()
         {
-            return b.GetDataTable("Select m.MusteriKayitID ,m.MusteriTcKNo ,m.MusteriAd ,m.MusteriSoyad ,m.MusteriGirisTarih ,m.MusteriCikisTarih ,m.MusteriOdaNo  from tblMusteri m inner join tblOda o on m.MusteriOdaNo=o.OdaNo");
+            try
+            {
+                return b.GetDataTable("Select m.MusteriKayitID ,m.MusteriTcKNo ,m.MusteriAd ,m.MusteriSoyad ,m.MusteriGirisTarih ,m.MusteriCikisTarih ,m.MusteriOdaNo  from tblMusteri m inner join tblOda o on m.MusteriOdaNo=o.OdaNo");
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

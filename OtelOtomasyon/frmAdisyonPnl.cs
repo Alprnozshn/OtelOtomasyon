@@ -19,23 +19,23 @@ namespace OtelOtomasyon
         frmMain frm = (frmMain)Application.OpenForms["frmMain"];
         private void btnAdisyon_Click(object sender, EventArgs e)
         {
-            frmAdisyonIslem frmI = new frmAdisyonIslem();
-            frmI.MdiParent = Application.OpenForms["frmMain"];
-            frmI.Show();
-        }
-
-        private void btnMusteriAdisyon_Click(object sender, EventArgs e)
-        {
-            if (frm.YetkiID==1)
+            if (frm.YetkiID == 1)
             {
-                frmMusteriAdisyon frm = new frmMusteriAdisyon();
-                frm.MdiParent = Application.OpenForms["frmMain"];
-                frm.Show();
+                frmAdisyonIslem frmI = new frmAdisyonIslem();
+                frmI.MdiParent = Application.OpenForms["frmMain"];
+                frmI.Show();
             }
             else
             {
                 MessageBox.Show("Yetkiniz Yetersiz!");
             }
+        }
+
+        private void btnMusteriAdisyon_Click(object sender, EventArgs e)
+        {
+            frmMusteriAdisyon frm = new frmMusteriAdisyon();
+            frm.MdiParent = Application.OpenForms["frmMain"];
+            frm.Show();
         }
     }
 }

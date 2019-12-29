@@ -40,10 +40,10 @@
             this.menuYonetim = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPersonel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuKullanici = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDepartman = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuOda = new System.Windows.Forms.ToolStripMenuItem();
             this.menuKullaniciIslem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuYetkiIslem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDepartman = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOda = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,30 +150,32 @@
             this.menuKullanici.Size = new System.Drawing.Size(180, 22);
             this.menuKullanici.Text = "Kullanıcı İşlemleri";
             // 
+            // menuKullaniciIslem
+            // 
+            this.menuKullaniciIslem.Name = "menuKullaniciIslem";
+            this.menuKullaniciIslem.Size = new System.Drawing.Size(166, 22);
+            this.menuKullaniciIslem.Text = "Kullanıcı İşlemleri";
+            this.menuKullaniciIslem.Click += new System.EventHandler(this.menuKullaniciIslem_Click);
+            // 
+            // menuYetkiIslem
+            // 
+            this.menuYetkiIslem.Name = "menuYetkiIslem";
+            this.menuYetkiIslem.Size = new System.Drawing.Size(166, 22);
+            this.menuYetkiIslem.Text = "Yetki İşlemleri";
+            this.menuYetkiIslem.Click += new System.EventHandler(this.menuYetkiIslem_Click);
+            // 
             // menuDepartman
             // 
             this.menuDepartman.Name = "menuDepartman";
             this.menuDepartman.Size = new System.Drawing.Size(180, 22);
             this.menuDepartman.Text = "Departman İşlemleri";
+            this.menuDepartman.Click += new System.EventHandler(this.menuDepartman_Click);
             // 
             // menuOda
             // 
             this.menuOda.Name = "menuOda";
             this.menuOda.Size = new System.Drawing.Size(180, 22);
             this.menuOda.Text = "Oda İşlemleri";
-            // 
-            // menuKullaniciIslem
-            // 
-            this.menuKullaniciIslem.Name = "menuKullaniciIslem";
-            this.menuKullaniciIslem.Size = new System.Drawing.Size(180, 22);
-            this.menuKullaniciIslem.Text = "Kullanıcı İşlemleri";
-            // 
-            // menuYetkiIslem
-            // 
-            this.menuYetkiIslem.Name = "menuYetkiIslem";
-            this.menuYetkiIslem.Size = new System.Drawing.Size(180, 22);
-            this.menuYetkiIslem.Text = "Yetki İşlemleri";
-            this.menuYetkiIslem.Click += new System.EventHandler(this.menuYetkiIslem_Click);
             // 
             // frmMain
             // 

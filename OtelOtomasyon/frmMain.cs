@@ -68,5 +68,17 @@ namespace OtelOtomasyon
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void menuKullaniciIslem_Click(object sender, EventArgs e)
+        {
+            frmKullanici frm = new frmKullanici();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void menuDepartman_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

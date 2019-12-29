@@ -15,29 +15,68 @@ namespace BLL
         Baglanti b = new Baglanti();
         public List<Musteri> MusteriGetir()
         {
-            SqlDataReader dr = b.ExecuteReader("Select MusteriKayitID, MusteriAd,MusteriSoyad from tblMusteri", null);
-            List<Musteri> lst = new List<Musteri>();
-            while (dr.Read())
+            try
             {
-                lst.Add(new Musteri { MusteriKayitID = Convert.ToInt32(dr["MusteriKayitID"]),AdSoyad=dr["MusteriAd"].ToString()+" "+dr["MusteriSoyad"].ToString() });
+                SqlDataReader dr = b.ExecuteReader("Select MusteriKayitID, MusteriAd,MusteriSoyad from tblMusteri", null);
+                List<Musteri> lst = new List<Musteri>();
+                while (dr.Read())
+                {
+                    lst.Add(new Musteri { MusteriKayitID = Convert.ToInt32(dr["MusteriKayitID"]), AdSoyad = dr["MusteriAd"].ToString() + " " + dr["MusteriSoyad"].ToString() });
+                }
+                dr.Close();
+                return lst;
             }
-            dr.Close();
-            return lst;
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public List<Adisyon> AdisyonGetir()
         {
-            SqlDataReader dr = b.ExecuteReader("Select AdisyonID, AdisyonAd, AdisyonFiyat from tblAdisyon", null);
-            List<Adisyon> lst = new List<Adisyon>();
-            while (dr.Read())
+            try
             {
-                lst.Add(new Adisyon { AdisyonID = Convert.ToInt32(dr["AdisyonID"]), AdisyonAd = dr["AdisyonAd"].ToString(), Fiyat = Convert.ToSingle(dr["AdisyonFiyat"]) });
+                SqlDataReader dr = b.ExecuteReader("Select AdisyonID, AdisyonAd, AdisyonFiyat from tblAdisyon", null);
+                List<Adisyon> lst = new List<Adisyon>();
+                while (dr.Read())
+                {
+                    lst.Add(new Adisyon { AdisyonID = Convert.ToInt32(dr["AdisyonID"]), AdisyonAd = dr["AdisyonAd"].ToString(), Fiyat = Convert.ToSingle(dr["AdisyonFiyat"]) });
+                }
+                dr.Close();
+                return lst;
             }
-            dr.Close();
-            return lst;
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public DataTable MusteriAdisGetir()
         {
-            return b.GetDataTable("Select MusteriID,AdisyonID,AdisyonAdet,AdisyonToplamFiyat from tblMusteriAdisyon");
+            try
+            {
+                return b.GetDataTable("Select MusteriID,AdisyonID,AdisyonAdet,AdisyonToplamFiyat from tblMusteriAdisyon");
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public MusteriAdisyon ToplamFiyatiBelirle(Adisyon a ,MusteriAdisyon ma)
         {
@@ -63,13 +102,39 @@ namespace BLL
         }
         public bool MusAdisSil(int AdisID,int MusID)
         {
-            SqlParameter[] p = { new SqlParameter("@AdisID", AdisID), new SqlParameter("@MusID", MusID) };
-            return b.ExecuteNonQuery("Delete from tblMusteriAdisyon where AdisyonID=@AdisID and MusteriID=@MusID", p) > 0;
+            try
+            {
+                SqlParameter[] p = { new SqlParameter("@AdisID", AdisID), new SqlParameter("@MusID", MusID) };
+                return b.ExecuteNonQuery("Delete from tblMusteriAdisyon where AdisyonID=@AdisID and MusteriID=@MusID", p) > 0;
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public bool MusAdisGuncelle(MusteriAdisyon ma)
         {
-            SqlParameter[] p = { new SqlParameter("@MusID",ma.MusteriID),new SqlParameter("@AdisID",ma.AdisyonID),new SqlParameter("@AdisAdet",ma.AdisyonAdet),new SqlParameter("@TopFiyat",ma.ToplamFiyat)};
-            return b.ExecuteNonQuery("Update tblMusteriAdisyon SET MusteriID=@MusID,AdisyonID=@AdisID,AdisyonAdet=@AdisAdet,AdisyonToplamFiyat=@TopFiyat where MusteriID=@MusID and AdisyonID=@AdisID", p) > 0;
+            try
+            {
+                SqlParameter[] p = { new SqlParameter("@MusID", ma.MusteriID), new SqlParameter("@AdisID", ma.AdisyonID), new SqlParameter("@AdisAdet", ma.AdisyonAdet), new SqlParameter("@TopFiyat", ma.ToplamFiyat) };
+                return b.ExecuteNonQuery("Update tblMusteriAdisyon SET MusteriID=@MusID,AdisyonID=@AdisID,AdisyonAdet=@AdisAdet,AdisyonToplamFiyat=@TopFiyat where MusteriID=@MusID and AdisyonID=@AdisID", p) > 0;
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
     }

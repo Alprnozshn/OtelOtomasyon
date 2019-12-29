@@ -23,14 +23,27 @@ namespace Data
 
         public int ExecuteNonQuery(string cmdtext, SqlParameter[] p)
         {
-            cmd = new SqlCommand(cmdtext, baglanti);
-            if (p != null)
+            try
             {
-                cmd.Parameters.AddRange(p);
+                cmd = new SqlCommand(cmdtext, baglanti);
+                if (p != null)
+                {
+                    cmd.Parameters.AddRange(p);
+                }
+                Ac();
+                int sonuc = cmd.ExecuteNonQuery();
+                return sonuc;
             }
-            Ac();
-            int sonuc = cmd.ExecuteNonQuery();
-            return sonuc;
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public SqlDataReader ExecuteReader(string cmdtext, SqlParameter[] p)
@@ -59,14 +72,30 @@ namespace Data
         }
         public DataTable GetDataTable(string selectcmdtext)
         {
-            SqlDataAdapter da = new SqlDataAdapter(selectcmdtext, baglanti);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter(selectcmdtext, baglanti);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         public void Dispose()
         {
-            baglanti.Dispose();
+            if (baglanti!=null)
+            {
+                baglanti.Dispose(); 
+            }
             if (cmd!=null)
             {
                 cmd.Dispose();
